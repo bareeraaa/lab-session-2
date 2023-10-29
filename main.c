@@ -1,26 +1,25 @@
 #include <stdio.h>
+#include <stdio.h>
 
-int main()
-{
-    int i=1;
-	int n;
-	int s=0;
-	printf("Enter the value of N: ");
-	scanf("%d",&n);
-    printf("Odd Numbers from 1 to %d:\n",n);
+int main() {
+    int rows, i, j;
 
-	while(i<=n)
-	{
-            if(i%2 != 0){
-			printf("%d ",i);
-			s=s+i;
-            }
+    printf("Enter the number of rows: ");
+    scanf("%d", &rows);
 
-            i++;
-	}
-printf("\n");
-printf("%d",s);
-	return 0;
+    for (i = 1; i <= rows; i++) {
+        // Print spaces
+        for (j = 1; j <= rows - i; j++) {
+            printf(" ");
+        }
+
+        // Print asterisks
+        for (j = 1; j <= i; j++) {
+            printf("* ");
+        }
+
+        printf("\n");
+    }
+
+    return 0;
 }
-
-

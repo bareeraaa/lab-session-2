@@ -1,35 +1,34 @@
 #include <stdio.h>
-int main()
-{
-    int arr1[100], n,ctr=0;
-       printf("Input the number of elements to be stored in the array: ");
-       scanf("%d",&n);
-       printf("Input %d elements in the array :\n",n);
-       for(int i=0;i<n;i++)
-            {
-	      printf("element - %d : ",i);
-	      scanf("%d",&arr1[i]);
-	    }
-    printf("\nThe unique elements found in the array are: \n");
-    for(int i=0; i<n; i++)
-    {
-        ctr=0;
-        for(int j=0,k=n; j<k+1; j++)
-        {
-            /*Increment the counter when the seaarch value is duplicate.*/
-            if (i!=j)
-            {
-		       if(arr1[i]==arr1[j])
-              {
-                 ctr++;
-               }
-             }
-        }
-       if(ctr==0)
-        {
-          printf("%d ",arr1[i]);
-        }
-    }
-       printf("\n\n");
-       return 0;
+
+struct Distance {
+   int feet;
+   float inch;
+} d1, d2, result;
+
+int main() {
+   // take first distance input
+   printf("Enter 1st distance\n");
+   printf("Enter feet: ");
+   scanf("%d", &d1.feet);
+   printf("Enter inch: ");
+   scanf("%f", &d1.inch);
+
+   // take second distance input
+   printf("\nEnter 2nd distance\n");
+   printf("Enter feet: ");
+   scanf("%d", &d2.feet);
+   printf("Enter inch: ");
+   scanf("%f", &d2.inch);
+
+   // adding distances
+   result.feet = d1.feet + d2.feet;
+   result.inch = d1.inch + d2.inch;
+
+   // convert inches to feet if greater than 12
+   while (result.inch >= 12.0) {
+      result.inch = result.inch - 12.0;
+      ++result.feet;
+   }
+   printf("\nSum of distances = %d\'-%.1f\"", result.feet, result.inch);
+   return 0;
 }

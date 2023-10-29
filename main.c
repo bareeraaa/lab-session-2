@@ -1,28 +1,24 @@
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
-int main() {
-    char str1[100], str2[100];
-    int flag = 1;
+int main()
+{
+  char str[100];
+  int ctr, ch, i;
+	   printf("Input the string : ");
+       fgets(str, sizeof str, stdin);
+  i=strlen(str);
+  ctr = i;
+  printf("\nThe given sentence is   : %s",str);
 
-    printf("Enter the first string: ");
-    gets(str1);
+  printf("After Case changed the string  is: ");
+  for(i=0; i < ctr; i++)
+  {
+    ch = islower(str[i]) ? toupper(str[i]) : tolower(str[i]);
+    putchar(ch);
+   }
+   printf("\n\n");
+   return 0;
 
-    printf("Enter the second string: ");
-    gets(str2);
-
-    // Compare the two strings character by character
-    for (int i = 0; str1[i] != '\0' || str2[i] != '\0'; i++) {
-        if (str1[i] != str2[i]) {
-            flag = 0;
-            break;
-        }
-    }
-
-    if (flag == 1) {
-        printf("The two strings are equal.\n");
-    } else {
-        printf("The two strings are not equal.\n");
-    }
-
-    return 0;
 }
